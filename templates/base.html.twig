@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}Shoplo Shop{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">
+            Shop
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('shop.products') }}">
+                        {{ 'menu.shop.product_list'|trans }}
+                    </a>
+                </li>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin.products.new') }}">
+                            {{ 'menu.admin.add_product'|trans }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('logout') }}">
+                            {{ 'menu.logout'|trans }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('login') }}">
+                            {{ 'menu.login'|trans }}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{{ asset('build/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<a{% for attr, value  in options if attr != 'title' %} {{ attr }}="{{ value }}"{% endfor %}>
+    {{ title|raw }}
+    {% if app.request.get('sort') == key %}
+        {% if app.request.get('direction') == 'desc' %}
+            &darr;
+        {% else %}
+            &uarr;
+        {% endif %}
+    {% endif %}
+</a>

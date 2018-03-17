@@ -1,0 +1,19 @@
+security.login_page.header: Logowanie
+security.login_page.username.label: Login
+security.login_page.username.placeholder: Podaj login
+security.login_page.password.label: Hasło
+security.login_page.password.placeholder: Podaj hasło
+security.login_page.btn.submit: Zaloguj się
+
+menu.shop.product_list: Lista produktów
+menu.login: Zaloguj
+menu.logout: Wyloguj
+menu.admin.add_product: Dodaj produkt
+
+table.product.header.name: Nazwa
+table.product.header.price: Cena
+
+form.product.name.label: Nazwa
+form.product.description.label: Opis
+form.product.price.label: Cena
+form.product.submit.label: Dodaj produkt

@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+    php7:
+      build: docker/php7
+      container_name: shoplo_shop_php7
+      ports:
+        - 9000:9000
+      volumes:
+        - ./:/var/www/shoplo-shop.xdev
+      tty: true
+
+    nginx:
+      build: docker/nginx
+      container_name: shoplo_shop_nginx
+      ports:
+        - 80:80
+        - 8080:80
+        - 443:443
+      depends_on:
+        - php7
+      tty: true
+      volumes:
+        - ./:/var/www/shoplo-shop.xdev
+        - ./var/nginx/:/var/log/nginx
+
+    nvm:
+      build: docker/nvm
+      container_name: shoplo_shop_nvm
+      volumes:
+        - ./:/var/www/shoplo-shop.xdev
+      tty: true
+
+    db7:
+      image: mysql:5.7
+      container_name: shoplo_shop_db7
+      ports:
+        - 3306:3306
+      environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: shoplo_shop
