@@ -21,7 +21,7 @@ class ProductFixtures extends Fixture
         $this->money = $money;
     }
 
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         for ($i = 1; $i <= 55; $i++) {
             $command = new CreateNewProduct(

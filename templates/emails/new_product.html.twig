@@ -1,0 +1,9 @@
+{% extends 'emails/base.html.twig' %}
+
+{% block content %}
+    <p>
+        New product in shop.<br>
+        {{ product.name }} - {{ product.price|money_localized_format }}<br>
+        {{ product.description }}
+    </p>
+{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Entity\Product;
 use App\Events;
 use App\Utils\NotificationSenderInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -26,14 +27,17 @@ class ProductSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onProductCreated(GenericEvent $event)
+    public function onProductCreated(GenericEvent $event): void
     {
+        /** @var Product $product */
         $product = $event->getSubject();
 
         $this->notificationSender->send(
-            'subject',
+            'New product',
             'fake@example.com',
-            $this->templating->render('')
+            $this->templating->render('emails/new_product.html.twig', [
+                'product' => $product,
+            ])
         );
     }
 }

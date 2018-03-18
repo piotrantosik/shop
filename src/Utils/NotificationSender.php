@@ -18,9 +18,9 @@ class NotificationSender implements NotificationSenderInterface
     {
         $this->mailer->send(
             (new Swift_Message($subject))
-                ->setFrom()
+                ->setFrom('noreply@example.com')
                 ->setTo($to)
-                ->setBody()
+                ->setBody($body, 'text/html')
         );
     }
 }

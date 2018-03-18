@@ -37,7 +37,7 @@ services:
     Money\Formatter\IntlMoneyFormatter: ~
     Money\Formatter\DecimalMoneyFormatter: ~
 
-    App\Service\MoneyService:
+    App\Utils\Money:
         $locale: '%locale%'
 
     League\Tactician\CommandBus: '@tactician.commandbus.default'

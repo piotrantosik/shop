@@ -25,7 +25,8 @@ RUN apt-get update && apt-get install -y \
         php7.2-mbstring \
         php7.2-soap \
         php7.2-imagick \
-        php7.2-bcmath
+        php7.2-bcmath \
+        php7.2-sqlite3
 
 ADD configs/php-cli.ini /etc/php/7.2/cli/php.ini
 ADD configs/php-fpm.ini /etc/php/7.2/fpm/php.ini

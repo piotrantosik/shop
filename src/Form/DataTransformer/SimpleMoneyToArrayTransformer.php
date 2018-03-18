@@ -7,9 +7,6 @@ use Money\Money;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 
-/**
- * Transforms between a Money instance and an array.
- */
 class SimpleMoneyToArrayTransformer implements DataTransformerInterface
 {
     private $currency;
@@ -19,9 +16,6 @@ class SimpleMoneyToArrayTransformer implements DataTransformerInterface
         $this->currency = $currency;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function transform($value)
     {
         if (null === $value) {
@@ -35,9 +29,6 @@ class SimpleMoneyToArrayTransformer implements DataTransformerInterface
         return $value->getAmount();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function reverseTransform($value)
     {
         if (null === $value) {

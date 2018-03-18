@@ -19,7 +19,7 @@ class CreateNewProductHandler
         $this->eventDispatcher = $eventDispatcher;
     }
 
-    public function handle(CreateNewProduct $command)
+    public function handle(CreateNewProduct $command): void
     {
         $product = new Product(
             $command->getName(),
